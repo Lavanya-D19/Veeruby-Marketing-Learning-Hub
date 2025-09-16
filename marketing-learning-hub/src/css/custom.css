@@ -1,0 +1,107 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for Marketing Learning Paths LMS */
+:root {
+  --learn-card-radius: 1rem;
+  --learn-card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--ifm-spacing-horizontal);
+  margin: 2rem 0;
+}
+
+.learn-card {
+  background: var(--ifm-background-color);
+  border-radius: var(--learn-card-radius);
+  box-shadow: var(--learn-card-shadow);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  outline: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.learn-card:focus,
+.learn-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px) scale(1.02);
+}
+.learn-card:active {
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.pill {
+  display: inline-block;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.25em 0.75em;
+  font-size: 0.85em;
+  margin-bottom: 0.5em;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--ifm-color-secondary);
+  color: #fff;
+  border-radius: 0.5em;
+  padding: 0.2em 0.6em;
+  font-size: 0.8em;
+  margin-right: 0.5em;
+}
+
+.kpi {
+  font-weight: bold;
+  color: var(--ifm-color-success);
+  font-size: 1.1em;
+  margin-top: 0.5em;
+}
+
+@media (hover: none) {
+  .learn-card:hover {
+    box-shadow: var(--learn-card-shadow);
+    border-color: transparent;
+    transform: none;
+  }
+}
+
+.learn-card:focus {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
