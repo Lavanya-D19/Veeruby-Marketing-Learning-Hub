@@ -1,148 +1,117 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+import type { Config } from '@docusaurus/types';
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Marketing Learning Paths',
+  tagline: 'Learn marketing the modern way—tracks, modules, and quizzes.',
   favicon: 'img/favicon.ico',
-
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  url: 'https://<YOUR_GITHUB_USERNAME>.github.io', // CHANGE THIS
+  baseUrl: '/marketing-learning-hub/', // CHANGE THIS
+  organizationName: '<YOUR_GITHUB_USERNAME>', // CHANGE THIS
+  projectName: 'marketing-learning-hub', // CHANGE THIS
+  trailingSlash: false,
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          routeBasePath: '/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+        blog: false,
+        pages: true,
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
         },
-        theme: {
-          customCss: './src/css/custom.css',
-        },
-      } satisfies Preset.Options,
+      },
     ],
   ],
-
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Marketing Learning Paths',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Marketing Learning Paths Logo',
+        src: '/img/logo.svg',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Tutorial',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        { to: '/tracks/beginner-week1', label: 'Tracks', position: 'left' },
+        { to: '/modules/foundations/intro-to-marketing', label: 'Modules', position: 'left' },
+        { to: '/quizzes/quiz-templates', label: 'Quizzes', position: 'left' },
+        { to: '/resources/videos', label: 'Resources', position: 'left' },
+        { to: '/about', label: 'About', position: 'right' },
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
-          title: 'Docs',
+          title: 'Learn',
           items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
+            { label: 'Tracks', to: '/tracks/beginner-week1' },
+            { label: 'Modules', to: '/modules/foundations/intro-to-marketing' },
+            { label: 'Quizzes', to: '/quizzes/quiz-templates' },
           ],
         },
         {
-          title: 'Community',
+          title: 'Build',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            { label: 'Resources', to: '/resources/videos' },
+            { label: 'Tutorials', to: '/resources/tutorials' },
+            { label: 'Templates', to: '/resources/templates' },
           ],
         },
         {
-          title: 'More',
+          title: 'Admin',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
+            { label: 'Update Log', to: '/admin/ADMIN_Update_Log' },
+            { label: 'Update Process', to: '/admin/Update_Process' },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Marketing Learning Paths LMS.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+      additionalLanguages: ['typescript', 'tsx'],
     },
-  } satisfies Preset.ThemeConfig,
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+    },
+    metadata: [
+      { name: 'description', content: 'Learn marketing the modern way—tracks, modules, and quizzes.' },
+      { name: 'keywords', content: 'marketing, learning, tracks, modules, quizzes' },
+      { property: 'og:title', content: 'Marketing Learning Paths' },
+      { property: 'og:description', content: 'Learn marketing the modern way—tracks, modules, and quizzes.' },
+      { property: 'og:image', content: '/img/logo.svg' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: '/img/logo.svg' },
+    ],
+    // algolia: {
+    //   apiKey: '',
+    //   indexName: '',
+    // },
+    // announcementBar: {
+    //   id: 'welcome',
+    //   content: 'Welcome to Marketing Learning Paths!',
+    // },
+  },
+  plugins: [
+    'plugin-sitemap',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [], // Add redirects here
+      },
+    ],
+  ],
+  onBrokenLinks: 'throw', // Change to 'warn' if needed
+  onBrokenMarkdownLinks: 'warn',
 };
 
 export default config;
