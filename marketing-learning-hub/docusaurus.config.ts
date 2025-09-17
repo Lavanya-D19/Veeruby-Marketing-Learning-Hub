@@ -5,9 +5,9 @@ const config: Config = {
   title: 'Marketing Learning Paths',
   tagline: 'Learn marketing the modern way—tracks, modules, and quizzes.',
   favicon: 'img/favicon.ico',
-  url: 'https://<YOUR_GITHUB_USERNAME>.github.io', // CHANGE THIS
-  baseUrl: '/marketing-learning-hub/', // CHANGE THIS
-  organizationName: '<YOUR_GITHUB_USERNAME>', // CHANGE THIS
+  url: 'https://Lavanya-D19.github.io',
+  baseUrl: '/marketing-learning-hub/',
+  organizationName: 'Lavanya-D19',
   projectName: 'marketing-learning-hub', // CHANGE THIS
   trailingSlash: false,
   i18n: {
@@ -19,13 +19,13 @@ const config: Config = {
       'classic',
       {
         docs: {
+          sidebarPath: require.resolve('./sidebars.ts'),
           routeBasePath: '/',
         },
         blog: false,
         pages: true,
-        sitemap: {
-          changefreq: 'weekly',
-          priority: 0.5,
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
         },
       },
     ],
@@ -75,8 +75,8 @@ const config: Config = {
       copyright: `© ${new Date().getFullYear()} Marketing Learning Paths LMS.`,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
+  theme: require('prism-react-renderer/themes/github'),
+  darkTheme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['typescript', 'tsx'],
     },
     colorMode: {
@@ -84,7 +84,7 @@ const config: Config = {
       disableSwitch: false,
     },
     metadata: [
-      { name: 'description', content: 'Learn marketing the modern way—tracks, modules, and quizzes.' },
+      { name: 'description', content: 'Learn marketing the mdern way—tracks, modules, and quizzes.' },
       { name: 'keywords', content: 'marketing, learning, tracks, modules, quizzes' },
       { property: 'og:title', content: 'Marketing Learning Paths' },
       { property: 'og:description', content: 'Learn marketing the modern way—tracks, modules, and quizzes.' },
@@ -101,17 +101,61 @@ const config: Config = {
     //   content: 'Welcome to Marketing Learning Paths!',
     // },
   },
-  plugins: [
-    'plugin-sitemap',
-    [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [], // Add redirects here
-      },
-    ],
-  ],
+  plugins: [],
   onBrokenLinks: 'throw', // Change to 'warn' if needed
   onBrokenMarkdownLinks: 'warn',
 };
 
-export default config;
+module.exports = {
+  title: 'Marketing Learning Paths',
+  tagline: 'Learn marketing the modern way—tracks, modules, and quizzes.',
+  favicon: 'img/favicon.ico',
+  url: 'https://Lavanya-D19.github.io',
+  baseUrl: '/marketing-learning-hub/',
+  organizationName: 'Lavanya-D19',
+  projectName: 'marketing-learning-hub',
+  trailingSlash: false,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: require.resolve('./sidebars.ts'),
+          routeBasePath: '/',
+        },
+        blog: false,
+        pages: true,
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
+  ],
+  themeConfig: {
+    navbar: {
+      title: 'Marketing Learning Paths',
+      logo: {
+        alt: 'Marketing Learning Paths Logo',
+        src: '/img/logo.svg',
+      },
+      items: [],
+    },
+    footer: {
+      style: 'light',
+      links: [],
+      copyright: `© ${new Date().getFullYear()} Marketing Learning Paths LMS.`,
+    },
+    prism: {
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
+      additionalLanguages: ['typescript', 'tsx'],
+    },
+  },
+  plugins: [],
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+};
